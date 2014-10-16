@@ -57,6 +57,15 @@ public extension Garage {
     }
     
     /**
+    One Pixel
+    
+    :returns:
+    */
+    class func OnePixelLength() -> CGFloat {
+        return 1.0 / self.ScreenScale()
+    }
+    
+    /**
     NumberOfPixels width
     
     :returns: Number of pixels (width)

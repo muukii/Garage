@@ -27,6 +27,10 @@ class GarageTests: XCTestCase {
         XCTAssert(CGSizeEqualToSize(size, result), "")
     }
     
+    func testOnePixelLength() {
+        XCTAssert(Garage.OnePixelLength() == 0.5, "")
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
