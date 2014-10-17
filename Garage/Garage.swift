@@ -178,3 +178,95 @@ extension UIColor {
         }
     }
 }
+
+extension UITableView {
+    enum UITableViewCellPosition {
+        case None
+        case Top
+        case Middle
+        case Bottom
+    }
+    
+    /**
+    Get Cell Position
+    
+    :param: indexPath
+    :param: overSection
+    
+    :returns:
+    */
+    func cellPosition(#indexPath: NSIndexPath?, overSection: Bool) -> UITableViewCellPosition {
+        if let indexPath = indexPath {
+            let numberOfSection = self.numberOfSections()
+            let numberOfRowInLastSection = self.numberOfRowsInSection(numberOfSection - 1)
+            
+            if overSection {
+                if indexPath.section == (numberOfSection - 1) && indexPath.row == (numberOfRowInLastSection - 1) {
+                    return .Bottom
+                } else if indexPath.section == 0 && indexPath.row == 0 {
+                    return .Top
+                } else {
+                    return .Middle
+                }
+            } else {
+                if indexPath.row == self.numberOfRowsInSection(indexPath.section) - 1 {
+                    return .Bottom
+                } else if indexPath.row == 0 {
+                    return .Top
+                } else {
+                    return .Middle
+                }
+            }
+        } else {
+            return .None
+        }
+    }
+    
+    /**
+    Cell Position is Bottom
+    
+    :param: indexPath
+    :param: overSection
+    
+    :returns:
+    */
+    func cellPositionIsBottom(#indexPath: NSIndexPath?, overSection: Bool) -> Bool{
+        if self.cellPosition(indexPath: indexPath, overSection: overSection) == .Bottom {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    /**
+    Cell Position is Middle
+    
+    :param: indexPath
+    :param: overSection
+    
+    :returns:
+    */
+    func cellPositionIsMiddle(#indexPath: NSIndexPath?, overSection: Bool) -> Bool {
+        if self.cellPosition(indexPath: indexPath, overSection: overSection) == .Middle {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    /**
+    Cell Position is Top
+    
+    :param: indexPath
+    :param: overSection
+    
+    :returns:
+    */
+    func cellPositionIsTop(#indexPath: NSIndexPath?, overSection: Bool) -> Bool {
+        if self.cellPosition(indexPath: indexPath, overSection: overSection) == .Top {
+            return true
+        } else {
+            return false
+        }
+    }
+}
