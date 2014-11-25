@@ -23,6 +23,15 @@
 
 import UIKit
 
+// iPhone4 iPhone4S
+let kScreenHeight_Xsmall: CGFloat = 480.0
+// iPhone5 iPhone5S
+let kScreenHeight_Small: CGFloat = 568.0
+// iPhone6
+let kScreenHeight_Medium: CGFloat = 667.0
+// iPhone6+
+let kScreenHeight_Large: CGFloat = 736.0
+
 // iPhone4 iPhone4S iPhone5 iPhone5S
 let kScreenWidth_Small: CGFloat = 320.0
 // iPhone6
@@ -46,6 +55,14 @@ public extension Garage {
     */
     class func ScreenScale() -> CGFloat {
         return UIScreen.mainScreen().scale
+    }
+    /**
+    ScreenHeight
+    
+    :returns: CGFloat
+    */
+    class func ScreenHeight() -> CGFloat {
+        return UIScreen.mainScreen().bounds.height
     }
     /**
     ScreenWidth
@@ -72,6 +89,19 @@ public extension Garage {
     */
     class func ScreenWidthPixel() -> Int {
         return Int(self.ScreenWidth() * self.ScreenScale())
+    }
+    
+    /**
+    iPhone4 iPhone4S
+    
+    :returns: Bool
+    */
+    class func ScreenHeightXsmall() -> Bool {
+        if ScreenHeight() <= kScreenHeight_Xsmall && ScreenHeight() < kScreenHeight_Small {
+            return true
+        }else {
+            return false
+        }
     }
 
     /**
