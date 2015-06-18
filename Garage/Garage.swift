@@ -92,6 +92,15 @@ public extension Garage {
     }
     
     /**
+    NumberOfPixels height
+    
+    :returns: Number of pixels (height)
+    */
+    class func ScreenHeightPixel() -> Int {
+        return Int(self.ScreenHeight() * self.ScreenScale())
+    }
+    
+    /**
     iPhone4 iPhone4S
     
     :returns: Bool
