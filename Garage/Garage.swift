@@ -167,7 +167,7 @@ public extension Garage {
     
     :returns: Suitable width
     */
-    class func CalculateFittingGridSize(#maxWidth: CGFloat, numberOfItemsInRow: Int, margin: CGFloat, index: Int) -> CGSize {
+    class func CalculateFittingGridSize(maxWidth maxWidth: CGFloat, numberOfItemsInRow: Int, margin: CGFloat, index: Int) -> CGSize {
         let totalMargin: CGFloat = margin * CGFloat(numberOfItemsInRow - 1)
         let actualWidth: CGFloat = maxWidth - totalMargin
         let width: CGFloat = CGFloat(floorf(Float(actualWidth) / Float(numberOfItemsInRow)))
@@ -234,7 +234,7 @@ extension UITableView {
     
     :returns:
     */
-    func cellPosition(#indexPath: NSIndexPath?, overSection: Bool) -> UITableViewCellPosition {
+    func cellPosition(indexPath indexPath: NSIndexPath?, overSection: Bool) -> UITableViewCellPosition {
         if let indexPath = indexPath {
             let numberOfSection = self.numberOfSections()
             let numberOfRowInLastSection = self.numberOfRowsInSection(numberOfSection - 1)
@@ -269,7 +269,7 @@ extension UITableView {
     
     :returns:
     */
-    func cellPositionIsBottom(#indexPath: NSIndexPath?, overSection: Bool) -> Bool{
+    func cellPositionIsBottom(indexPath indexPath: NSIndexPath?, overSection: Bool) -> Bool{
         if self.cellPosition(indexPath: indexPath, overSection: overSection) == .Bottom {
             return true
         } else {
@@ -285,7 +285,7 @@ extension UITableView {
     
     :returns:
     */
-    func cellPositionIsMiddle(#indexPath: NSIndexPath?, overSection: Bool) -> Bool {
+    func cellPositionIsMiddle(indexPath indexPath: NSIndexPath?, overSection: Bool) -> Bool {
         if self.cellPosition(indexPath: indexPath, overSection: overSection) == .Middle {
             return true
         } else {
@@ -301,7 +301,7 @@ extension UITableView {
     
     :returns:
     */
-    func cellPositionIsTop(#indexPath: NSIndexPath?, overSection: Bool) -> Bool {
+    func cellPositionIsTop(indexPath indexPath: NSIndexPath?, overSection: Bool) -> Bool {
         if self.cellPosition(indexPath: indexPath, overSection: overSection) == .Top {
             return true
         } else {
