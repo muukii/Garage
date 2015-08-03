@@ -236,7 +236,7 @@ extension UITableView {
     */
     func cellPosition(indexPath indexPath: NSIndexPath?, overSection: Bool) -> UITableViewCellPosition {
         if let indexPath = indexPath {
-            let numberOfSection = self.numberOfSections()
+            let numberOfSection = self.numberOfSections
             let numberOfRowInLastSection = self.numberOfRowsInSection(numberOfSection - 1)
             
             if overSection {
